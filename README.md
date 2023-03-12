@@ -10,7 +10,7 @@ Not a designer, so welcome to any design changes later on!
 
 To check it out, 
 - clone the repo 
-- cd inside `telemedfrontend`
+- `cd telemedfrontend`
 - run `flutter run -d chrome`
 
 Note, you will need to install flutter, but installing the xcode and android commandline tools is *not* needed. 
