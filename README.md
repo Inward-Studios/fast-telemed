@@ -2,7 +2,7 @@
 
 
 
-
+Blah Blah
 
 Currently, front end is made using flutter. There are 2 main reasons. First, much more comfortable in using flutter for an MVP rn than using react. Second, flutter lets us automatically make cross platform iOS, Android, and web apps, while still keeping the same front end. 
 
