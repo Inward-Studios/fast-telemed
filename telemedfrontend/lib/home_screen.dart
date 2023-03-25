@@ -3,6 +3,8 @@ import 'package:telemedfrontend/about_page.dart';
 import 'package:telemedfrontend/home_page.dart';
 import 'package:telemedfrontend/login_page.dart';
 
+import 'constants.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key? key,
@@ -34,27 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.brown.shade300,
-        leading: Center(
-          child: Text(
-            "NAME",
-            style: TextStyle(fontSize: 14),
-          ),
-        ),
-        actions: [
-          NavbarButton(
-              txt: "HOME",
-              state_setter: () {
-                set_page(0);
-              }),
-          NavbarButton(
-              txt: "ABOUT",
-              state_setter: () {
-                set_page(1);
-              }),
-        ],
-      ),
+      appBar: getMyAppBar(context),
       body: HomePage(),
     );
   }

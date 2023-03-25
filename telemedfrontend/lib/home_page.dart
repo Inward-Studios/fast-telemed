@@ -81,25 +81,25 @@ class HalfScreen extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            ElevatedButton(
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                      side: BorderSide(color: this.color),
-                    ),
-                  ),
-                  elevation: MaterialStateProperty.all(0.0),
-                  shadowColor: MaterialStateProperty.all(this.color),
-                  backgroundColor: MaterialStateProperty.all(this.color)),
-              onPressed: () {
-                Navigator.pushNamed(context, '/login');
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("Login"),
-              ),
-            )
+            // ElevatedButton(
+            //   style: ButtonStyle(
+            //       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            //         RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(8.0),
+            //           side: BorderSide(color: this.color),
+            //         ),
+            //       ),
+            //       elevation: MaterialStateProperty.all(0.0),
+            //       shadowColor: MaterialStateProperty.all(this.color),
+            //       backgroundColor: MaterialStateProperty.all(this.color)),
+            //   onPressed: () {
+            //     Navigator.pushNamed(context, '/login');
+            //   },
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(8.0),
+            //     child: Text("Login"),
+            //   ),
+            // )
           ],
         ),
       ),
