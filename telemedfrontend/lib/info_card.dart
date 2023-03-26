@@ -19,19 +19,6 @@ class InfoCard extends StatefulWidget {
 }
 
 class _InfoCardState extends State<InfoCard> {
-  Set<MaterialState> states = <MaterialState>{
-    MaterialState.pressed,
-    MaterialState.hovered,
-    MaterialState.focused
-  };
-
-  Color getBackgroundColor(Set<MaterialState> state) {
-    if (state.any(states.contains)) {
-      return Colors.blue.shade600;
-    }
-    return Colors.brown.shade400;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -73,19 +60,72 @@ class _InfoCardState extends State<InfoCard> {
           SizedBox(
             height: 15,
           ),
-          ElevatedButton(
-            onPressed: () {
-              print(widget.zoomLink);
-            },
-            child: Text("Open Zoom Session"),
-            style: ButtonStyle(
-                padding: MaterialStateProperty.all(EdgeInsets.all(20)),
-                elevation: MaterialStateProperty.all(0),
-                backgroundColor:
-                    MaterialStateProperty.resolveWith(getBackgroundColor),
-                foregroundColor: MaterialStateProperty.all(Colors.white)),
-          )
+          Row(
+            children: [
+              ActionButton(
+                buttonIcon: Icons.arrow_forward,
+                buttonColor: Colors.green,
+                onTapFxn: () {},
+              ),
+              ActionButton(
+                buttonIcon: Icons.edit,
+                onTapFxn: () {},
+                buttonColor: Colors.amber,
+              ),
+              ActionButton(
+                buttonIcon: Icons.delete,
+                buttonColor: Colors.red,
+                onTapFxn: () {},
+              ),
+            ],
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class ActionButton extends StatelessWidget {
+  ActionButton({
+    Key? key,
+    required this.buttonIcon,
+    required this.buttonColor,
+    required this.onTapFxn,
+  }) : super(key: key);
+
+  IconData buttonIcon;
+  MaterialColor buttonColor;
+  void Function() onTapFxn;
+
+  Set<MaterialState> states = <MaterialState>{
+    MaterialState.pressed,
+    MaterialState.hovered,
+    MaterialState.focused
+  };
+
+  Color getBackgroundColor(Set<MaterialState> state) {
+    if (state.any(states.contains)) {
+      return this.buttonColor[800]!;
+    }
+    return Colors.brown.shade400;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(right: 10),
+      child: ElevatedButton(
+        onPressed: this.onTapFxn,
+        child: Icon(
+          this.buttonIcon,
+          size: 16,
+        ),
+        style: ButtonStyle(
+            padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+            elevation: MaterialStateProperty.all(0),
+            backgroundColor:
+                MaterialStateProperty.resolveWith(getBackgroundColor),
+            foregroundColor: MaterialStateProperty.all(Colors.white)),
       ),
     );
   }

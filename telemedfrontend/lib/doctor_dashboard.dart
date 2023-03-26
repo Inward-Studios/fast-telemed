@@ -39,12 +39,25 @@ class _DoctorDashboardState extends State<DoctorDashboard> {
                   ),
                 ),
                 SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text("+ Create an Appointment"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue.shade700,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                ),
+                SizedBox(
                   height: 20,
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height,
                   child: ListView(children: doctorAppointments),
-                )
+                ),
               ],
             ),
           ),
